@@ -14,4 +14,12 @@ class HomeController extends BaseController
         ];
         return view('mobile/home/home', $data);
     }
+
+    public function master()
+    {
+        $data = [
+            'title' => 'Master Aset',
+        ];
+        return view('mobile/master-aset/master-aset', $data);
+    }
 }

@@ -42,33 +42,6 @@
 
     <?= $this->renderSection('content'); ?>
 
-    <!-- Footer Nav -->
-    <div class="footer-nav-area" id="footerNav">
-        <div class="container px-0">
-            <!-- Footer Content -->
-            <div class="footer-nav position-relative shadow-sm footer-style-two">
-                <ul class="h-100 d-flex align-items-center justify-content-between ps-0">
-                    <li>
-                        <a href="<?= base_url('/home') ?>">
-                            <i class="bi bi-house"></i>
-                        </a>
-                    </li>
-
-                    <li class="active">
-                        <a href="elements.html">
-                            <i class="bi bi-plus-lg"></i>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="settings.html">
-                            <i class="bi bi-person"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
 
     <!-- All JavaScript Files -->
     <script src="<?= base_url('mobile') ?>/js/bootstrap.bundle.min.js"></script>

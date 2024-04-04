@@ -19,7 +19,10 @@
                     <div class="col-4">
                         <div class="feature-card mx-auto text-center">
                             <div class="card mx-auto bg-gray">
-                                <img src="<?= base_url('mobile') ?>/assets/technical-support.png" alt="">
+                                <!-- image link -->
+                                <a href="<?= base_url('/master-aset') ?>">
+                                    <img src="<?= base_url('mobile') ?>/assets/technical-support.png" alt="">
+                                </a>
                             </div>
                             <p class="mb-0">Master Aset</p>
                         </div>
@@ -28,7 +31,7 @@
                     <div class="col-4">
                         <div class="feature-card mx-auto text-center">
                             <div class="card mx-auto bg-gray">
-                                <img src="<?= base_url('mobile') ?>/img/demo-img/bootstrap.png" alt="">
+                                <img src="<?= base_url('mobile') ?>/assets/email.png" alt="">
                             </div>
                             <p class="mb-0">Master Surat</p>
                         </div>
@@ -76,5 +79,33 @@
     </div>
 
     <div class="pb-3"></div>
+</div>
+
+<!-- Footer Nav -->
+<div class="footer-nav-area" id="footerNav">
+    <div class="container px-0">
+        <!-- Footer Content -->
+        <div class="footer-nav position-relative shadow-sm footer-style-two">
+            <ul class="h-100 d-flex align-items-center justify-content-between ps-0">
+                <li>
+                    <a href="<?= base_url('/home') ?>">
+                        <i class="bi bi-house"></i>
+                    </a>
+                </li>
+
+                <li class="active">
+                    <a href="elements.html">
+                        <i class="bi bi-plus-lg"></i>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="settings.html">
+                        <i class="bi bi-person"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
 <?= $this->endsection(); ?>
