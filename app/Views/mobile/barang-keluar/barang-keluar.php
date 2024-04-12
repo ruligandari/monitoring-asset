@@ -30,32 +30,33 @@
                 <table class="table w-100" id="dataTable">
                     <thead>
                         <tr>
-                            <th>Master Surat</th>
-                            <th>Gudang</th>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Kuantity (Qty)</th>
+                            <th>Tanggal Barang Keluar</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Box Internet</td>
-                            <td>Gudang Kuningan</td>
-                            <td>
-                                <div class="d-flex justify-content-center align-center">
-                                    <button class="btn btn-link btn-sm"><i class="bi bi-trash"></i></button>
-                                    <button class="btn btn-link btn-sm"><i class="bi bi-pencil"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Kabel Internet</td>
-                            <td>Gudang Kuningan</td>
-                            <td>
-                                <div class="d-flex justify-content-center align-center">
-                                    <button class="btn btn-link btn-sm"><i class="bi bi-trash"></i></button>
-                                    <button class="btn btn-link btn-sm"><i class="bi bi-pencil"></i></button>
-                                </div>
-                            </td>
-                        </tr>
+                        <?php
+                        $no = 1;
+                        foreach ($barangkeluar as $data) :
+                        ?>
+                            <tr>
+                                <td><?= $no++ ?></td>
+                                <td><?= $data['nama'] ?></td>
+                                <td><?= $data['qty'] ?></td>
+                                <td><?= $data['tanggal_barang_keluar'] ?></td>
+                                <td>
+                                    <div class="d-flex justify-content-center align-center">
+                                        <button class="btn btn-link btn-sm"><i class="bi bi-trash"></i></button>
+                                        <button class="btn btn-link btn-sm"><i class="bi bi-pencil"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php
+                        endforeach
+                        ?>
                     </tbody>
                 </table>
                 <button class="btn btn-primary w-100 mt-2" type="submit">Tambah Data

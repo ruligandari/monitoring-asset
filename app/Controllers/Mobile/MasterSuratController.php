@@ -7,10 +7,17 @@ use CodeIgniter\HTTP\ResponseInterface;
 
 class MasterSuratController extends BaseController
 {
+    function __construct()
+    {
+        $this->mastersurat = new \App\Models\MasterSuratModel();
+    }
+
     public function mastersurat()
     {
+        $mastersurat = $this->mastersurat->findAll();
         $data = [
             'title' => 'Master Surat',
+            'mastersurat' => $mastersurat
         ];
         return view('mobile/master-surat/master-surat', $data);
     }

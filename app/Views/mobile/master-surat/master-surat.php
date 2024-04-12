@@ -30,32 +30,35 @@
                 <table class="table w-100" id="dataTable">
                     <thead>
                         <tr>
-                            <th>Master Surat</th>
-                            <th>Gudang</th>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Nomor Surat</th>
+                            <th>Jenis Surat</th>
+                            <th>Tanggal Surat</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Box Internet</td>
-                            <td>Gudang Kuningan</td>
-                            <td>
-                                <div class="d-flex justify-content-center align-center">
-                                    <button class="btn btn-link btn-sm"><i class="bi bi-trash"></i></button>
-                                    <button class="btn btn-link btn-sm"><i class="bi bi-pencil"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Kabel Internet</td>
-                            <td>Gudang Kuningan</td>
-                            <td>
-                                <div class="d-flex justify-content-center align-center">
-                                    <button class="btn btn-link btn-sm"><i class="bi bi-trash"></i></button>
-                                    <button class="btn btn-link btn-sm"><i class="bi bi-pencil"></i></button>
-                                </div>
-                            </td>
-                        </tr>
+                        <?php
+                        $no = 1;
+                        foreach ($mastersurat as $data) :
+                        ?>
+                            <tr>
+                                <td><?= $no++ ?></td>
+                                <td><?= $data['nama'] ?></td>
+                                <td><?= $data['nomor_surat'] ?></td>
+                                <td><?= $data['jenis_surat'] ?></td>
+                                <td><?= $data['tanggal_surat'] ?></td>
+                                <td>
+                                    <div class="d-flex justify-content-center align-center">
+                                        <button class="btn btn-link btn-sm"><i class="bi bi-trash"></i></button>
+                                        <button class="btn btn-link btn-sm"><i class="bi bi-pencil"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php
+                        endforeach
+                        ?>
                     </tbody>
                 </table>
                 <button class="btn btn-primary w-100 mt-2" type="submit">Tambah Data
