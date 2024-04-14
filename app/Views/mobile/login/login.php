@@ -12,13 +12,13 @@
         <div class="register-form mt-4">
             <h6 class="mb-3 text-center">Silahkan Login Akun Anda</h6>
 
-            <form action="https://designing-world.com/affan-1.6.0/home.html">
+            <form action="<?= base_url('auth') ?>" method="POST">
                 <div class="form-group">
-                    <input class="form-control" type="text" id="username" placeholder="Username">
+                    <input class="form-control" type="text" id="username" placeholder="Username" name="username">
                 </div>
 
                 <div class="form-group position-relative">
-                    <input class="form-control" id="psw-input" type="password" placeholder="Enter Password">
+                    <input class="form-control" id="psw-input" type="password" placeholder="Enter Password" name="password">
                     <div class="position-absolute" id="password-visibility">
                         <i class="bi bi-eye"></i>
                         <i class="bi bi-eye-slash"></i>
@@ -31,8 +31,6 @@
 
         <!-- Login Meta -->
         <div class="login-meta-data text-center">
-            <a class="stretched-link forgot-password d-block mt-3 mb-1" href="forget-password.html">Forgot
-                Password?</a>
             <p class="mb-0">Didn't have an account?
                 <a class="stretched-link" href="register.php">Register Now</a>
             </p>
