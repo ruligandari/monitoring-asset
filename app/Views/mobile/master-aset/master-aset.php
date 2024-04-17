@@ -1,6 +1,29 @@
 <?= $this->extend('mobile/layouts'); ?>
 
 <?= $this->section('content'); ?>
+
+<!-- sweetalert -->
+
+<?php if (session()->getFlashdata('success')) : ?>
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: '<?= session()->getFlashdata('success') ?>',
+            showConfirmButton: false,
+            time: 1000
+        })
+    </script>
+<?php elseif (session()->getFlashdata('error')) : ?>
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Gagal',
+            text: '<?= session()->getFlashdata('error') ?>',
+            showConfirmButton: false,
+        })
+    </script>
+<?php endif; ?>
 <!-- Header Area -->
 <div class="header-area" id="headerArea">
     <div class="container">
@@ -49,8 +72,8 @@
                                 <td><?= $data['total'] ?></td>
                                 <td>
                                     <div class="d-flex justify-content-center align-center">
-                                        <button class="btn btn-link btn-sm"><i class="bi bi-trash"></i></button>
-                                        <button class="btn btn-link btn-sm"><i class="bi bi-pencil"></i></button>
+                                        <button class="btn btn-link btn-sm" onclick="deleteData(<?= $data['id'] ?>)"><i class="bi bi-trash"></i></button>
+                                        <a class="btn btn-link btn-sm" type="button" href="<?= base_url('master-aset/edit/' . $data['id']) ?>"><i class="bi bi-pencil"></i></a>
                                     </div>
                                 </td>
                             </tr>
@@ -59,10 +82,53 @@
                         ?>
                     </tbody>
                 </table>
-                <button class="btn btn-primary w-100 mt-2" type="submit">Tambah Data
+                <a class="btn btn-primary w-100 mt-2" type="button" href="<?= base_url('master-aset/tambah') ?>">Tambah Data</a>
             </div>
         </div>
     </div>
     <div class="pb-3"></div>
 </div>
+<script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+<script>
+    function deleteData(id) {
+        Swal.fire({
+            title: 'Apakah anda yakin?',
+            text: "Data yang dihapus tidak bisa dikembalikan!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Hapus!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: '<?= base_url('master-aset/delete') ?>',
+                    type: 'POST',
+                    data: {
+                        id: id
+                    },
+                    success: function() {
+                        Swal.fire(
+                            'Terhapus!',
+                            'Data berhasil dihapus.',
+                            'success'
+                        ).then((result) => {
+                            location.reload();
+                        })
+                    },
+                    error: function() {
+                        Swal.fire(
+                            'Gagal!',
+                            'Data gagal dihapus.',
+                            'error'
+                        )
+                    }
+                })
+            }
+        })
+
+    }
+</script>
 <?= $this->endsection(); ?>

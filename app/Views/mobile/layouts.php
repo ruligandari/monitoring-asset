@@ -21,6 +21,8 @@
     <link rel="apple-touch-icon" sizes="152x152" href="<?= base_url('mobile') ?>/img/icons/icon-152x152.png">
     <link rel="apple-touch-icon" sizes="167x167" href="<?= base_url('mobile') ?>/img/icons/icon-167x167.png">
     <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url('mobile') ?>/img/icons/icon-180x180.png">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- cdn js -->
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="<?= base_url('mobile') ?>/style.css">
