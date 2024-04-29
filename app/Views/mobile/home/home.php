@@ -166,7 +166,47 @@
                 </div>
             </div>
         </div>
+    <?php elseif (session()->get('role') == '3') : ?>
+        <div class="container direction-rtl">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-4">
+                            <div class="feature-card mx-auto text-center">
+                                <div class="card mx-auto bg-gray">
+                                    <!-- image link -->
+                                    <a href="<?= base_url('/pengajuan-perangkat') ?>">
+                                        <img src="<?= base_url('mobile') ?>/assets/technical-support.png" alt="">
+                                    </a>
+                                </div>
+                                <p class="mb-0">Permintaan Teknisi</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="feature-card mx-auto text-center">
+                                <div class="card mx-auto bg-gray">
+                                    <a href="<?= base_url('/teknisi') ?>">
+                                        <img src="<?= base_url('mobile') ?>/assets/teknisi.png" alt="">
+                                    </a>
+                                </div>
+                                <p class="mb-0">Profil Project Manager</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="feature-card mx-auto text-center">
+                                <div class="card mx-auto bg-gray">
+                                    <a href="#" onclick="logout()">
+                                        <img src="<?= base_url('mobile') ?>/assets/user-logout.png" alt="">
+                                    </a>
+                                </div>
+                                <p class="mb-0">Logout</p>
+                            </div>
+                        </div>
+                    </div>
 
+                </div>
+            </div>
+        </div>
     <?php endif; ?>
     <div class="pb-3"></div>
 </div>

@@ -71,10 +71,12 @@
                             </a>
 
                             <!-- Options -->
-                            <div class="dropstart chat-options-btn">
-                                <a href="#" onclick="deleteData(<?= $data['id_pengajuan'] ?>)"><i class="bi bi-trash"></i></a>
+                            <?php if (session()->get('role') == '2') : ?>
+                                <div class="dropstart chat-options-btn">
+                                    <a href="#" onclick="deleteData(<?= $data['id_pengajuan'] ?>)"><i class="bi bi-trash"></i></a>
 
-                            </div>
+                                </div>
+                            <?php endif; ?>
                         </li>
                     <?php endforeach; ?>
                 </ul>
@@ -86,28 +88,30 @@
     <div class="pb-3"></div>
 </div>
 
-<div class="footer-nav-area" id="footerNav">
-    <div class="container px-0">
-        <!-- Footer Content -->
-        <div class="footer-nav position-relative shadow-sm footer-style-two">
-            <ul class="h-100 d-flex align-items-center justify-content-between ps-0">
-                <li>
+<?php if (session()->get('role') == '2') : ?>
+    <div class="footer-nav-area" id="footerNav">
+        <div class="container px-0">
+            <!-- Footer Content -->
+            <div class="footer-nav position-relative shadow-sm footer-style-two">
+                <ul class="h-100 d-flex align-items-center justify-content-between ps-0">
+                    <li>
 
-                </li>
+                    </li>
 
-                <li class="active">
-                    <a href="<?= base_url('pengajuan-perangkat/tambah') ?>">
-                        <i class="bi bi-plus-lg"></i>
-                    </a>
-                </li>
+                    <li class="active">
+                        <a href="<?= base_url('pengajuan-perangkat/tambah') ?>">
+                            <i class="bi bi-plus-lg"></i>
+                        </a>
+                    </li>
 
-                <li>
+                    <li>
 
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
+<?php endif; ?>
 <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
     function deleteData(id) {
