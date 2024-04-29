@@ -1,6 +1,29 @@
 <?= $this->extend('mobile/layouts'); ?>
 
 <?= $this->section('content'); ?>
+
+<!-- sweetalert -->
+
+<?php if (session()->getFlashdata('success')) : ?>
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: '<?= session()->getFlashdata('success') ?>',
+            showConfirmButton: false,
+            time: 1000
+        })
+    </script>
+<?php elseif (session()->getFlashdata('error')) : ?>
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Gagal',
+            text: '<?= session()->getFlashdata('error') ?>',
+            showConfirmButton: false,
+        })
+    </script>
+<?php endif; ?>
 <!-- Header Area -->
 <div class="header-area" id="headerArea">
     <div class="container">
@@ -49,8 +72,8 @@
                                 <td><?= $data['tanggal_barang_masuk'] ?></td>
                                 <td>
                                     <div class="d-flex justify-content-center align-center">
-                                        <button class="btn btn-link btn-sm"><i class="bi bi-trash"></i></button>
-                                        <button class="btn btn-link btn-sm"><i class="bi bi-pencil"></i></button>
+                                        <a class="btn btn-link btn-sm"><i class="bi bi-trash"></i></a>
+                                        <a href="<?= base_url('barang-masuk/edit/' . $data['id']) ?>" class="btn btn-link btn-sm"><i class="bi bi-pencil"></i></a>
                                     </div>
                                 </td>
                             </tr>
@@ -59,7 +82,7 @@
                         ?>
                     </tbody>
                 </table>
-                <button class="btn btn-primary w-100 mt-2" type="submit">Tambah Data
+                <a class="btn btn-primary w-100 mt-2" type="submit" href="<?= base_url('/barang-masuk/tambah') ?>">Tambah Data</a>
             </div>
         </div>
     </div>

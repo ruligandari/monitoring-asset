@@ -33,6 +33,7 @@ class LoginController extends BaseController
             if ($user['password'] == $password) {
                 $data = [
                     'id' => $user['id'],
+                    'nama' => $user['nama'], // add this line
                     'username' => $user['username'],
                     'role' => $user['role'],
                     'isLoggedIn' => true,
@@ -52,7 +53,7 @@ class LoginController extends BaseController
     public function logout()
     {
         session()->destroy();
-        return redirect()->to('/login');
+        return json_encode(['status' => 'success']);
     }
 
     public function register()

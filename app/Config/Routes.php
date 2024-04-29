@@ -24,7 +24,15 @@ $routes->post('/master-aset/delete', 'Mobile\HomeController::master_delete');
 $routes->get('/master-aset/edit/(:num)', 'Mobile\HomeController::master_edit/$1');
 
 $routes->get('/master-surat', 'Mobile\MasterSuratController::mastersurat');
+// barang masuk
 $routes->get('/barang-masuk', 'Mobile\BarangMasukController::barangmasuk');
+// route CRUD seperti master-aset
+$routes->get('/barang-masuk/tambah', 'Mobile\BarangMasukController::tambah');
+$routes->post('/barang-masuk/add', 'Mobile\BarangMasukController::add');
+$routes->get('/barang-masuk/edit/(:num)', 'Mobile\BarangMasukController::edit/$1');
+$routes->post('/barang-masuk/update', 'Mobile\BarangMasukController::update');
+$routes->post('/barang-masuk/delete', 'Mobile\BarangMasukController::delete');
+
 
 $routes->get('/barang-keluar', 'Mobile\BarangKeluarController::barangkeluar');
 
@@ -35,3 +43,12 @@ $routes->get('/surat-keluar', 'Mobile\SuratKeluarController::suratkeluar');
 $routes->get('/admin', 'Mobile\AdminController::admin');
 
 $routes->get('/teknisi', 'Mobile\AdminController::teknisi');
+
+
+// Teknisi
+$routes->get('/pengajuan-perangkat', 'Mobile\PengajuanPerangkatController::index');
+$routes->get('/pengajuan-perangkat/tambah', 'Mobile\PengajuanPerangkatController::tambah');
+$routes->post('/pengajuan-perangkat/add', 'Mobile\PengajuanPerangkatController::add');
+$routes->get('/pengajuan-perangkat/edit/(:any)', 'Mobile\PengajuanPerangkatController::edit/$1');
+$routes->post('/pengajuan-perangkat/update', 'Mobile\PengajuanPerangkatController::update');
+$routes->post('/pengajuan-perangkat/delete', 'Mobile\PengajuanPerangkatController::delete');

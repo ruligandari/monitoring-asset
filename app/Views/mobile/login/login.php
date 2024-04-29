@@ -30,11 +30,6 @@
         </div>
 
         <!-- Login Meta -->
-        <div class="login-meta-data text-center">
-            <p class="mb-0">Didn't have an account?
-                <a class="stretched-link" href="register.php">Register Now</a>
-            </p>
-        </div>
     </div>
 </div>
 <?= $this->endsection(); ?>
