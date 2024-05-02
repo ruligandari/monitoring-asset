@@ -8,7 +8,7 @@
         <div class="header-content position-relative d-flex align-items-center justify-content-between">
             <!-- Back Button -->
             <div class="back-button">
-                <a href="<?= base_url('/pengajuan-teknisi') ?>">
+                <a href="<?= base_url('/surat-masuk') ?>">
                     <i class="bi bi-arrow-left-short"></i>
                 </a>
             </div>
@@ -27,21 +27,16 @@
     <div class="pt-3"></div>
 
     <div class="container">
-        <form action="<?= base_url('pengajuan-teknisi/approve') ?>" method="POST">
+        <form action="<?= base_url('surat-masuk/approve') ?>" method="POST">
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     <div class="card-title align-center">
                         <p class="badge bg-info"><?= $data['status'] ?></p>
                     </div>
-                    <?php if (session()->get('role') == '3') : ?>
-                        <button class="btn m-1 btn-primary <?= $data['pm1'] == 0 ? '' : 'disabled' ?>" type="submit" <?= $data['pm1'] == 0 ? '' : 'disable' ?>>
-                            Approve
-                        </button>
-                    <?php else : ?>
-                        <button class="btn m-1 btn-primary <?= $data['pm2'] == 0 ? '' : 'disabled' ?>" type="submit" <?= $data['pm2'] == 0 ? '' : 'disable' ?>>
-                            Approve
-                        </button>
-                    <?php endif; ?>
+                    <button class="btn m-1 btn-primary " type="submit">
+                        Approve
+                    </button>
+
                 </div>
                 <div class="card-body">
                     <input type="hidden" name="id_pengajuan" value="<?= $data['id_pengajuan'] ?>">

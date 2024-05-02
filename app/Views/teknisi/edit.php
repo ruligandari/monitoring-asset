@@ -28,16 +28,16 @@
 
     <div class="container">
         <div class="card">
-            <div class="card-header d-flex justify-content-between">
-                <div class="card-title align-center">
-                    <p class="badge bg-info"><?= $data['status'] ?></p>
+            <form action="" method="GET">
+                <div class="card-header d-flex justify-content-between">
+                    <div class="card-title align-center">
+                        <p class="badge bg-info"><?= $data['status'] ?></p>
+                    </div>
+                    <a class="btn m-1 btn-primary" href="<?= base_url('download/' . $data['nama_surat']) ?>">
+                        <i class="bi bi-arrow-down"></i> Download Surat
+                    </a>
                 </div>
-                <a class="btn m-1 btn-primary" href="#">
-                    <i class="bi bi-arrow-down"></i> Download Surat
-                </a>
-            </div>
-            <div class="card-body">
-                <form action="<?= base_url('pengajuan-perangkat/update') ?>" method="POST">
+                <div class="card-body">
                     <input type="hidden" name="id_pengajuan" value="<?= $data['id_pengajuan'] ?>">
                     <div class="form-group">
                         <label class="form-label" for="exampleInputemail">Tanggal Pengajuan</label>
@@ -83,10 +83,10 @@
                     <!-- <button class="btn btn-primary w-100 d-flex align-items-center justify-content-center" type="submit">
                         Simpan Perubahan
                     </button> -->
-                </form>
-            </div>
+            </form>
         </div>
     </div>
+</div>
 
 </div>
 

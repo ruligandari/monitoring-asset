@@ -61,18 +61,20 @@
                                 </div>
                                 <!-- Info -->
                                 <div class="chat-user-info">
-                                    <h6 class="text-truncate mb-0"><?= $data['asset_nama'] ?> </h6>
+                                    <h6 class="text-truncate mb-0"><?= $data['nama'] ?></h6>
                                     <div class="last-chat">
-                                        <p class="text-truncate mb-0"><?= $data['user_nama'] ?> - <?= $data['tgl_pengajuan'] ?></p>
+                                        <p class="text-truncate mb-0"><?= $data['tgl_pengajuan'] ?></p>
                                         <p class="text-truncate mb-0">Unit : <?= $data['unit'] ?></p>
                                     </div>
                                 </div>
                             </a>
 
                             <!-- Options -->
+
                             <div class="dropstart chat-options-btn">
                                 <p class="text-truncate mb-0 badge <?= ($data['status'] == "Telah Disetujui" ? 'bg-success' : 'bg-info') ?>"><?= $data['status'] ?></p>
                             </div>
+
                         </li>
                     <?php endforeach; ?>
                 </ul>

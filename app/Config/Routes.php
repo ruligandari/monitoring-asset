@@ -37,6 +37,8 @@ $routes->post('/barang-masuk/delete', 'Mobile\BarangMasukController::delete');
 $routes->get('/barang-keluar', 'Mobile\BarangKeluarController::barangkeluar');
 
 $routes->get('/surat-masuk', 'Mobile\SuratMasukController::suratmasuk');
+$routes->get('/surat-masuk/edit/(:any)', 'Mobile\SuratMasukController::edit/$1');
+$routes->post('/surat-masuk/approve', 'Mobile\SuratMasukController::update');
 
 $routes->get('/surat-keluar', 'Mobile\SuratKeluarController::suratkeluar');
 
@@ -53,6 +55,8 @@ $routes->get('/pengajuan-perangkat/edit/(:any)', 'Mobile\PengajuanPerangkatContr
 $routes->post('/pengajuan-perangkat/update', 'Mobile\PengajuanPerangkatController::update');
 $routes->post('/pengajuan-perangkat/delete', 'Mobile\PengajuanPerangkatController::delete');
 $routes->get('/asset/perangkat-disimpan', 'Mobile\PengajuanPerangkatController::perangkatDisimpan');
+// download surat
+$routes->get('/download/(:any)', 'Mobile\PengajuanPerangkatController::download/$1');
 // Project Manager
 $routes->get('/pengajuan-teknisi', 'Mobile\ProjectManagerController::index');
 $routes->get('/pengajuan-teknisi/edit/(:any)', 'Mobile\ProjectManagerController::edit/$1');

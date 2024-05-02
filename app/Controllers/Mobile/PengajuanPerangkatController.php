@@ -148,4 +148,16 @@ class PengajuanPerangkatController extends BaseController
 
         return json_encode($result);
     }
+
+    public function download($filename)
+    {
+        if (!file_exists($filename)) {
+            echo "File not found";
+            exit;
+        }
+
+        $response = $this->response->download($filename, null);
+
+        return $response;
+    }
 }

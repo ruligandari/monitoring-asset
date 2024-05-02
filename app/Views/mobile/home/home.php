@@ -166,7 +166,7 @@
                 </div>
             </div>
         </div>
-    <?php elseif (session()->get('role') == '3') : ?>
+    <?php elseif (session()->get('role') == '3' || session()->get('role') == '4') : ?>
         <div class="container direction-rtl">
             <div class="card mb-3">
                 <div class="card-body">
