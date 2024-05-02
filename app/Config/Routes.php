@@ -52,3 +52,10 @@ $routes->post('/pengajuan-perangkat/add', 'Mobile\PengajuanPerangkatController::
 $routes->get('/pengajuan-perangkat/edit/(:any)', 'Mobile\PengajuanPerangkatController::edit/$1');
 $routes->post('/pengajuan-perangkat/update', 'Mobile\PengajuanPerangkatController::update');
 $routes->post('/pengajuan-perangkat/delete', 'Mobile\PengajuanPerangkatController::delete');
+$routes->get('/asset/perangkat-disimpan', 'Mobile\PengajuanPerangkatController::perangkatDisimpan');
+// Project Manager
+$routes->get('/pengajuan-teknisi', 'Mobile\ProjectManagerController::index');
+$routes->get('/pengajuan-teknisi/edit/(:any)', 'Mobile\ProjectManagerController::edit/$1');
+$routes->post('/pengajuan-teknisi/approve', 'Mobile\ProjectManagerController::update');
+
+// surat

@@ -54,9 +54,9 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Tanggal</th>
-                            <th>Nama</th>
-                            <th>Total</th>
+                            <th>Asset</th>
+                            <th>Status</th>
+                            <th>Merk</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -67,9 +67,9 @@
                         ?>
                             <tr>
                                 <td><?= $no++ ?></td>
-                                <td><?= $data['tanggal'] ?></td>
-                                <td><?= $data['nama'] ?></td>
-                                <td><?= $data['total'] ?></td>
+                                <td><?= $data['deskripsi'] . '-' . $data['sn'] ?></td>
+                                <td><?= $data['status_perangkat'] ?></td>
+                                <td><?= $data['merk'] ?></td>
                                 <td>
                                     <div class="d-flex justify-content-center align-center">
                                         <button class="btn btn-link btn-sm" onclick="deleteData(<?= $data['id'] ?>)"><i class="bi bi-trash"></i></button>

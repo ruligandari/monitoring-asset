@@ -8,7 +8,7 @@ class BarangMasukModel extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'tbl_barang_masuk';
-    protected $primaryKey       = 'id';
+    protected $primaryKey       = 'id_barang_masuk';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;

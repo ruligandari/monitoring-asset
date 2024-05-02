@@ -175,7 +175,7 @@
                             <div class="feature-card mx-auto text-center">
                                 <div class="card mx-auto bg-gray">
                                     <!-- image link -->
-                                    <a href="<?= base_url('/pengajuan-perangkat') ?>">
+                                    <a href="<?= base_url('/pengajuan-teknisi') ?>">
                                         <img src="<?= base_url('mobile') ?>/assets/technical-support.png" alt="">
                                     </a>
                                 </div>
@@ -271,4 +271,5 @@
 
     }
 </script>
+
 <?= $this->endsection(); ?>

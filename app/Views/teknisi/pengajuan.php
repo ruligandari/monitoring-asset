@@ -49,7 +49,7 @@
     <div class="pt-3"></div>
     <div class="container">
         <div class="card">
-            <?php if ($pengajuan > 0) : ?>
+            <?php if ($pengajuan) : ?>
                 <ul class="ps-0 chat-user-list">
                     <!-- Single Chat User -->
                     <?php foreach ($pengajuan as $data) : ?>
@@ -61,27 +61,27 @@
                                 </div>
                                 <!-- Info -->
                                 <div class="chat-user-info">
-                                    <h6 class="text-truncate mb-0"><?= $data['nama'] ?></h6>
+                                    <h6 class="text-truncate mb-0">ID #<?= $data['id_simpan'] ?></h6>
                                     <div class="last-chat">
                                         <p class="text-truncate mb-0"><?= $data['tgl_pengajuan'] ?></p>
                                         <p class="text-truncate mb-0">Unit : <?= $data['unit'] ?></p>
-                                        <p class="text-truncate mb-0 badge bg-info"><?= $data['status'] ?></p>
                                     </div>
                                 </div>
                             </a>
 
                             <!-- Options -->
-                            <?php if (session()->get('role') == '2') : ?>
-                                <div class="dropstart chat-options-btn">
-                                    <a href="#" onclick="deleteData(<?= $data['id_pengajuan'] ?>)"><i class="bi bi-trash"></i></a>
 
-                                </div>
-                            <?php endif; ?>
+                            <div class="dropstart chat-options-btn">
+                                <p class="text-truncate mb-0 badge <?= ($data['status'] == "Telah Disetujui" ? 'bg-success' : 'bg-info') ?>"><?= $data['status'] ?></p>
+                            </div>
+
                         </li>
                     <?php endforeach; ?>
                 </ul>
             <?php else : ?>
-                <p>Belum ada pengajuan perangkat baru</p>
+                <div class="card-body">
+                    <p class="text-center">Belum ada pengajuan perangkat.</p>
+                </div>
             <?php endif ?>
         </div>
     </div>

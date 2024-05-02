@@ -28,34 +28,61 @@
 
     <div class="container">
         <div class="card">
-            <div class="card-header">
-                <p class="badge bg-info mb-0"><?= $data['status'] ?></p>
+            <div class="card-header d-flex justify-content-between">
+                <div class="card-title align-center">
+                    <p class="badge bg-info"><?= $data['status'] ?></p>
+                </div>
+                <a class="btn m-1 btn-primary" href="#">
+                    <i class="bi bi-arrow-down"></i> Download Surat
+                </a>
             </div>
             <div class="card-body">
                 <form action="<?= base_url('pengajuan-perangkat/update') ?>" method="POST">
-                    <input type="hidden" name="id_asset" value="<?= $data['id_asset'] ?>">
+                    <input type="hidden" name="id_pengajuan" value="<?= $data['id_pengajuan'] ?>">
                     <div class="form-group">
-                        <label class="form-label" for="exampleInputText">Perangkat Yang Diajukan</label>
-                        <select name="nama" id="" class="form-select">
-                            <option value="">Pilih Nama Perangkat</option>
-                            <?php foreach ($barang as $b) : ?>
-                                <option value="<?= $b['id'] ?>" <?= ($data['id_asset'] == $b['id']) ? 'selected' : '' ?>><?= $b['nama'] ?></option>
+                        <label class="form-label" for="exampleInputemail">Tanggal Pengajuan</label>
+                        <input class="form-control-plaintext" id="exampleInputemail" type="text" name="tanggal" value="<?= date('d-m-Y') ?>" readonly>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Perangkat Disimpan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($dataSimpan as $ds) : ?>
+                                <tr>
+                                    <td><?= $ds['deskripsi'] . ' - ' . $ds['sn'] . ' - MERK ' . $ds['merk'] ?></td>
+                                </tr>
                             <?php endforeach; ?>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="exampleInputemail">Tanggal</label>
-                        <input class="form-control" id="exampleInputemail" type="text" name="tanggal" value="<?= date('d-m-Y') ?>" readonly>
-                    </div>
+                        </tbody>
+                    </table>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Perangkat Diambil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($dataAmbil as $da) : ?>
+                                <tr>
+                                    <td><?= $da['deskripsi'] . ' - ' . $da['sn'] . ' - MERK ' . $da['merk'] ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
 
                     <div class="form-group">
                         <label class="form-label" for="exampleInputemail">Unit</label>
-                        <input class="form-control" id="exampleInputemail" type="text" value="<?= $data['unit'] ?>" name="unit" placeholder="Masukan Unit">
+                        <input class="form-control-plaintext" id="exampleInputemail" type="text" value="<?= $data['unit'] ?>" name="unit" placeholder="Masukan Unit">
                     </div>
-                    <button class="btn btn-primary w-100 d-flex align-items-center justify-content-center" type="submit">
+                    <div class="form-group">
+                        <label class="form-label" for="exampleInputemail">Estimasi Penyimpanan/Pengambilan</label>
+                        <input class="form-control-plaintext" id="exampleInputemail" type="text" value="<?= $data['tgl_awal'] . ' - ' . $data['tgl_akhir'] ?>" name="unit" placeholder="Masukan Unit">
+                    </div>
+                    <!-- <button class="btn btn-primary w-100 d-flex align-items-center justify-content-center" type="submit">
                         Simpan Perubahan
-                    </button>
+                    </button> -->
                 </form>
             </div>
         </div>
