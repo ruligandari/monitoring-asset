@@ -33,7 +33,7 @@
                     <div class="card-title align-center">
                         <p class="badge bg-info"><?= $data['status'] ?></p>
                     </div>
-                    <button class="btn m-1 btn-primary " type="submit">
+                    <button class="btn m-1 btn-primary <?= $data['admin'] == 1 ? "disabled" : "" ?>" type="submit" <?= $data['admin'] == 1 ? "disable" : "" ?>>
                         Approve
                     </button>
 
