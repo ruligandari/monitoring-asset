@@ -48,6 +48,47 @@
 <div class="page-content-wrapper">
     <div class="pt-3"></div>
     <div class="container">
+        <?php if ($pengajuanAntri) : ?>
+            <div class="element-heading">
+                <h6 class="ps-1">Permintaan Baru (<?= count($pengajuanAntri) ?>)</h6>
+            </div>
+
+            <div class="card">
+                <ul class="ps-0 chat-user-list">
+                    <!-- Single Chat User -->
+                    <?php foreach ($pengajuanAntri as $data) : ?>
+                        <li class="p-3">
+                            <a class="d-flex" href="<?= base_url('surat-masuk/edit/' . $data['id_pengajuan']) ?>">
+                                <!-- Thumbnail -->
+                                <div class="chat-user-thumbnail me-3 shadow">
+                                    <img class="img-circle" src="<?= base_url('mobile') ?>/assets/technical-support.png" alt="">
+                                </div>
+                                <!-- Info -->
+                                <div class="chat-user-info">
+                                    <h6 class="text-truncate mb-0">ID #<?= $data['id_simpan'] ?></h6>
+                                    <div class="last-chat">
+                                        <p class="text-truncate mb-0"><?= $data['tgl_pengajuan'] ?></p>
+                                        <p class="text-truncate mb-0">Unit : <?= $data['unit'] ?></p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- Options -->
+
+                            <div class="dropstart chat-options-btn">
+                                <p class="text-truncate mb-0 badge <?= ($data['status'] == "Telah Disetujui" ? 'bg-success' : 'bg-info') ?>"><?= $data['status'] ?></p>
+                            </div>
+
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+
+            </div>
+            <div class="pb-3"></div>
+        <?php endif ?>
+        <div class="element-heading">
+            <h6 class="ps-1">Daftar Surat Masuk</h6>
+        </div>
         <div class="card">
             <?php if ($pengajuan) : ?>
                 <ul class="ps-0 chat-user-list">

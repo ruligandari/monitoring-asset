@@ -37,7 +37,7 @@
 
                     <div class="form-group">
                         <label class="form-label" for="exampleInputemail">Serial Number</label>
-                        <input class="form-control" id="exampleInputemail" type="text" name="sn" placeholder="Masukan Total">
+                        <input class="form-control" id="exampleInputemail" type="text" name="sn" placeholder="Masukan Serial Number">
                     </div>
 
                     <div class="form-group">

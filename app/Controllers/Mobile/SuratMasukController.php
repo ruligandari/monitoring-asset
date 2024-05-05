@@ -25,12 +25,21 @@ class SuratMasukController extends BaseController
     {
         $pengajuanData = $this->pengajuan
             ->join('user', 'user.id = tbl_pengajuan.id_user')
+            ->where('status', 'Disetujui')
+            ->orderBy('id_pengajuan', 'DESC')
+            ->findAll();
+
+        // fifo
+        $pengajuanDataAntri = $this->pengajuan
+            ->join('user', 'user.id = tbl_pengajuan.id_user')
+            ->where('status', 'Menunggu Approval')
             ->orderBy('id_pengajuan', 'ASC')
             ->findAll();
 
         $data = [
             'title' => 'Surat Masuk',
-            'pengajuan' => $pengajuanData
+            'pengajuan' => $pengajuanData,
+            'pengajuanAntri' => $pengajuanDataAntri,
         ];
         return view('mobile/surat-masuk/surat-masuk', $data);
     }
@@ -138,9 +147,29 @@ class SuratMasukController extends BaseController
 
         // return view untuk preview surat
 
+        // update master asset untuk barang masuk
+        $updateMasterAsset = $this->barangMasuk->where('id_simpan', $pengajuan['id_simpan'])
+            ->select('id_asset')
+            ->findAll();
+        // cocokan id_asset dengan id pada tbl_master_asset, kemudia ubah status menjadi  Tersedia
+        foreach ($updateMasterAsset as $data) {
+            $this->masterAsset->update($data['id_asset'], ['status_perangkat' => 'Tersedia']);
+        }
+
+        // update master asset untuk barang Keluar
+        $updateMasterAssetKeluar = $this->barangKeluar->where('id_ambil', $pengajuan['id_ambil'])
+            ->select('id_asset')
+            ->findAll();
+        // cocokan id_asset dengan id pada tbl_master_asset, kemudia ubah status menjadi  $unit
+        foreach ($updateMasterAssetKeluar as $data) {
+            $this->masterAsset->update($data['id_asset'], ['status_perangkat' => $unit]);
+        }
+
         // update status pengajuan
 
         $this->pengajuan->update($id_pengajuan, ['status' => 'Disetujui', 'nama_surat' => $namaSurat, 'admin' => 1]);
+
+
 
         return redirect()->to('/surat-masuk')->with('success', 'Permintaan Disetujui');
     }
