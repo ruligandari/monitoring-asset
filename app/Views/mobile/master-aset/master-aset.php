@@ -82,11 +82,33 @@
                         ?>
                     </tbody>
                 </table>
-                <a class="btn btn-primary w-100 mt-2" type="button" href="<?= base_url('master-aset/tambah') ?>">Tambah Data</a>
             </div>
         </div>
     </div>
+
     <div class="pb-3"></div>
+    <div class="footer-nav-area" id="footerNav">
+        <div class="container px-0">
+            <!-- Footer Content -->
+            <div class="footer-nav position-relative shadow-sm footer-style-two">
+                <ul class="h-100 d-flex align-items-center justify-content-between ps-0">
+                    <li>
+
+                    </li>
+
+                    <li class="active">
+                        <a href="<?= base_url('master-aset/tambah') ?>">
+                            <i class="bi bi-plus-lg"></i>
+                        </a>
+                    </li>
+
+                    <li>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
 <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 

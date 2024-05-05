@@ -31,9 +31,9 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama</th>
-                            <th>Kuantity (Qty)</th>
-                            <th>Tanggal Barang Keluar</th>
+                            <th>Asset</th>
+                            <th>Status</th>
+                            <th>Merk</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -44,13 +44,13 @@
                         ?>
                             <tr>
                                 <td><?= $no++ ?></td>
-                                <td><?= $data['nama'] ?></td>
-                                <td><?= $data['qty'] ?></td>
-                                <td><?= $data['tanggal_barang_keluar'] ?></td>
+                                <td><?= $data['deskripsi'] . '-' . $data['sn'] ?></td>
+                                <td><?= $data['status_perangkat'] ?></td>
+                                <td><?= $data['merk'] ?></td>
                                 <td>
                                     <div class="d-flex justify-content-center align-center">
-                                        <button class="btn btn-link btn-sm"><i class="bi bi-trash"></i></button>
-                                        <button class="btn btn-link btn-sm"><i class="bi bi-pencil"></i></button>
+                                        <button class="btn btn-link btn-sm" onclick="deleteData(<?= $data['id'] ?>)"><i class="bi bi-trash"></i></button>
+                                        <a class="btn btn-link btn-sm" type="button" href="<?= base_url('barang-keluar/edit/' . $data['id_barang_keluar']) ?>"><i class="bi bi-eye"></i></a>
                                     </div>
                                 </td>
                             </tr>
@@ -59,7 +59,6 @@
                         ?>
                     </tbody>
                 </table>
-                <button class="btn btn-primary w-100 mt-2" type="submit">Tambah Data
             </div>
         </div>
     </div>

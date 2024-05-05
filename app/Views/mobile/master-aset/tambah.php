@@ -36,13 +36,17 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" for="exampleInputemail">Total</label>
-                        <input class="form-control" id="exampleInputemail" type="text" name="total" placeholder="Masukan Total">
+                        <label class="form-label" for="exampleInputemail">Serial Number</label>
+                        <input class="form-control" id="exampleInputemail" type="text" name="sn" placeholder="Masukan Total">
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" for="exampleInputemail">Tanggal</label>
-                        <input class="form-control" id="exampleInputemail" type="text" name="tanggal" value="<?= date('d-m-Y') ?>" readonly>
+                        <label class="form-label" for="exampleInputemail">Status Perangkat</label>
+                        <input class="form-control" id="exampleInputemail" type="text" name="status_perangkat" placeholder="Masukan Status Perangkat">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="exampleInputemail">Merk</label>
+                        <input class="form-control" id="exampleInputemail" type="text" name="merk" value="" placeholder="Masukan Merk">
                     </div>
 
                     <button class="btn btn-primary w-100 d-flex align-items-center justify-content-center" type="submit">

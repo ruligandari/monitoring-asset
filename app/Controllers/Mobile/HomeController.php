@@ -23,7 +23,7 @@ class HomeController extends BaseController
 
     public function master()
     {
-        $masterassets = $this->masterassets->findAll();
+        $masterassets = $this->masterassets->orderBy('id', 'DESC')->findAll();
 
         $data = [
             'title' => 'Master Aset',
@@ -43,14 +43,15 @@ class HomeController extends BaseController
     public function master_add()
     {
         $nama = $this->request->getPost('nama');
-        $total = $this->request->getPost('total');
-        $tanggal = $this->request->getVar('tanggal');
-        $tanggal = date('Y-m-d', strtotime($tanggal));
+        $sn = $this->request->getPost('sn');
+        $statusPerangkat = $this->request->getVar('status_perangkat');
+        $merk = $this->request->getPost('merk');
 
         $data = [
-            'nama' => $nama,
-            'total' => $total,
-            'tanggal' => $tanggal
+            'deskripsi' => $nama,
+            'sn' => $sn,
+            'status_perangkat' => $statusPerangkat,
+            'merk' => $merk
         ];
 
         $this->masterassets->insert($data);
@@ -73,11 +74,15 @@ class HomeController extends BaseController
     {
         $id = $this->request->getPost('id');
         $nama = $this->request->getPost('nama');
-        $total = $this->request->getPost('total');
+        $sn = $this->request->getPost('sn');
+        $statusPerangkat = $this->request->getVar('status_perangkat');
+        $merk = $this->request->getPost('merk');
 
         $data = [
-            'nama' => $nama,
-            'total' => $total
+            'deskripsi' => $nama,
+            'sn' => $sn,
+            'status_perangkat' => $statusPerangkat,
+            'merk' => $merk
         ];
 
         $this->masterassets->update($id, $data);

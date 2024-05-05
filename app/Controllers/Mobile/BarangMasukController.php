@@ -18,7 +18,10 @@ class BarangMasukController extends BaseController
 
     public function barangmasuk()
     {
-        $barangmasuk = $this->barangmasuk->findAll();
+        $barangmasuk = $this->barangmasuk
+            ->join('tbl_master_asset', 'tbl_master_asset.id = tbl_barang_masuk.id_asset')
+            ->join('tbl_pengajuan', 'tbl_pengajuan.id_simpan = tbl_barang_masuk.id_simpan')->where('status', 'Disetujui')
+            ->orderBy('id_pengajuan', 'DESC')->findAll();
         $data = [
             'title' => 'Barang Masuk',
             'barangmasuk' => $barangmasuk
@@ -71,9 +74,14 @@ class BarangMasukController extends BaseController
 
     public function edit($id)
     {
-        $barangmasuk = $this->barangmasuk->find($id);
+        $barangmasuk = $this->barangmasuk
+            ->join('tbl_master_asset', 'tbl_master_asset.id = tbl_barang_masuk.id_asset')
+            ->join('tbl_pengajuan', 'tbl_pengajuan.id_simpan = tbl_barang_masuk.id_simpan')
+            ->join('user', 'tbl_pengajuan.id_user = user.id')
+            ->find($id);
+
         $data = [
-            'title' => 'Edit Barang Masuk',
+            'title' => 'Detail Barang Masuk',
             'data' => $barangmasuk
         ];
         return view('mobile/barang-masuk/edit', $data);

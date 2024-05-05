@@ -8,7 +8,7 @@
         <div class="header-content position-relative d-flex align-items-center justify-content-between">
             <!-- Back Button -->
             <div class="back-button">
-                <a href="<?= base_url('/barang-masuk') ?>">
+                <a href="<?= base_url('/barang-keluar') ?>">
                     <i class="bi bi-arrow-left-short"></i>
                 </a>
             </div>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="exampleInputemail">Tanggal Pengajuan</label>
-                    <input class="form-control-plaintext" id="exampleInputemail" type="text" name="tanggal" value="<?= $data['tanggal_barang_masuk'] ?>" readonly>
+                    <input class="form-control-plaintext" id="exampleInputemail" type="text" name="tanggal" value="<?= $data['tanggal_barang_keluar'] ?>" readonly>
                 </div>
                 <table class="table">
                     <thead>

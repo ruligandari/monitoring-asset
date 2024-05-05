@@ -32,9 +32,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nama</th>
-                            <th>Nomor Surat</th>
-                            <th>Jenis Surat</th>
-                            <th>Tanggal Surat</th>
+                            <th>Template Surat</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -46,9 +44,7 @@
                             <tr>
                                 <td><?= $no++ ?></td>
                                 <td><?= $data['nama'] ?></td>
-                                <td><?= $data['nomor_surat'] ?></td>
-                                <td><?= $data['jenis_surat'] ?></td>
-                                <td><?= $data['tanggal_surat'] ?></td>
+                                <td><?= $data['file_surat'] ?></td>
                                 <td>
                                     <div class="d-flex justify-content-center align-center">
                                         <button class="btn btn-link btn-sm"><i class="bi bi-trash"></i></button>

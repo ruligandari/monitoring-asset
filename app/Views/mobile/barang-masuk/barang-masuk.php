@@ -54,9 +54,9 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama</th>
-                            <th>Kuantity (Qty)</th>
-                            <th>Tanggal Barang Masuk</th>
+                            <th>Asset</th>
+                            <th>Status</th>
+                            <th>Merk</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -67,13 +67,12 @@
                         ?>
                             <tr>
                                 <td><?= $no++ ?></td>
-                                <td><?= $data['nama'] ?></td>
-                                <td><?= $data['qty'] ?></td>
-                                <td><?= $data['tanggal_barang_masuk'] ?></td>
+                                <td><?= $data['deskripsi'] . '-' . $data['sn'] ?></td>
+                                <td><?= $data['status_perangkat'] ?></td>
+                                <td><?= $data['merk'] ?></td>
                                 <td>
                                     <div class="d-flex justify-content-center align-center">
-                                        <a class="btn btn-link btn-sm"><i class="bi bi-trash"></i></a>
-                                        <a href="<?= base_url('barang-masuk/edit/' . $data['id']) ?>" class="btn btn-link btn-sm"><i class="bi bi-pencil"></i></a>
+                                        <a class="btn btn-link btn-sm" type="button" href="<?= base_url('barang-masuk/edit/' . $data['id_barang_masuk']) ?>"><i class="bi bi-eye"></i></a>
                                     </div>
                                 </td>
                             </tr>
@@ -82,7 +81,6 @@
                         ?>
                     </tbody>
                 </table>
-                <a class="btn btn-primary w-100 mt-2" type="submit" href="<?= base_url('/barang-masuk/tambah') ?>">Tambah Data</a>
             </div>
         </div>
     </div>

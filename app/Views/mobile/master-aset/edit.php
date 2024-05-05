@@ -30,15 +30,24 @@
         <div class="card">
             <div class="card-body">
                 <form action="<?= base_url('master-aset/update') ?>" method="POST">
+                    <input type="hidden" name="id" value="<?= $data['id'] ?>">
                     <div class="form-group">
-                        <input type="hidden" name="id" value="<?= $data['id'] ?>">
                         <label class="form-label" for="exampleInputText">Nama Aset</label>
-                        <input class="form-control" id="exampleInputText" type="text" name="nama" value="<?= $data['nama'] ?>">
+                        <input class="form-control" id="exampleInputText" type="text" name="nama" value="<?= $data['deskripsi'] ?>" placeholder="Nama Aset">
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" for="exampleInputemail">Total</label>
-                        <input class="form-control" id="exampleInputemail" type="text" name="total" value="<?= $data['total'] ?>">
+                        <label class="form-label" for="exampleInputemail">Serial Number</label>
+                        <input class="form-control" id="exampleInputemail" type="text" name="sn" value="<?= $data['sn'] ?>" placeholder="Masukan Total">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="exampleInputemail">Status Perangkat</label>
+                        <input class="form-control" id="exampleInputemail" type="text" name="status_perangkat" value="<?= $data['status_perangkat'] ?>" placeholder="Masukan Status Perangkat">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="exampleInputemail">Merk</label>
+                        <input class="form-control" id="exampleInputemail" type="text" name="merk" value="<?= $data['merk'] ?>" placeholder="Masukan Merk">
                     </div>
 
                     <button class="btn btn-primary w-100 d-flex align-items-center justify-content-center" type="submit">

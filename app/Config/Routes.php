@@ -35,12 +35,14 @@ $routes->post('/barang-masuk/delete', 'Mobile\BarangMasukController::delete');
 
 
 $routes->get('/barang-keluar', 'Mobile\BarangKeluarController::barangkeluar');
+$routes->get('/barang-keluar/edit/(:any)', 'Mobile\BarangKeluarController::edit/$1');
 
 $routes->get('/surat-masuk', 'Mobile\SuratMasukController::suratmasuk');
 $routes->get('/surat-masuk/edit/(:any)', 'Mobile\SuratMasukController::edit/$1');
 $routes->post('/surat-masuk/approve', 'Mobile\SuratMasukController::update');
 
 $routes->get('/surat-keluar', 'Mobile\SuratKeluarController::suratkeluar');
+$routes->get('/surat-keluar/edit/(:any)', 'Mobile\SuratKeluarController::edit/$1');
 
 $routes->get('/admin', 'Mobile\AdminController::admin');
 

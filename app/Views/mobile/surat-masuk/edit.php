@@ -86,9 +86,11 @@
                         <label class="form-label" for="exampleInputemail">Estimasi Penyimpanan/Pengambilan</label>
                         <input class="form-control-plaintext" id="exampleInputemail" type="text" value="<?= $data['tgl_awal'] . ' - ' . $data['tgl_akhir'] ?>" name="unit" placeholder="Masukan Unit">
                     </div>
-                    <!-- <button class="btn btn-primary w-100 d-flex align-items-center justify-content-center" type="submit">
+                </div>
+                <!-- <button class="btn btn-primary w-100 d-flex align-items-center justify-content-center" type="submit">
                         Simpan Perubahan
                     </button> -->
+            </div>
         </form>
     </div>
 </div>

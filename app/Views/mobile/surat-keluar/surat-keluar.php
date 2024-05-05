@@ -26,41 +26,38 @@
     <div class="pt-3"></div>
     <div class="container">
         <div class="card">
-            <div class="card-body">
-                <table class="table w-100" id="dataTable">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Nomor Surat</th>
-                            <th>Tanggal Pembuatan</th>
-                            <th>Id Asset</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $no = 1;
-                        foreach ($suratkeluar as $data) :
-                        ?>
-                            <tr>
-                                <td><?= $no++ ?></td>
-                                <td><?= $data['nomor_surat'] ?></td>
-                                <td><?= $data['tgl_pembuatan'] ?></td>
-                                <td><?= $data['id_asset'] ?></td>
-                                <td>
-                                    <div class="d-flex justify-content-center align-center">
-                                        <button class="btn btn-link btn-sm"><i class="bi bi-trash"></i></button>
-                                        <button class="btn btn-link btn-sm"><i class="bi bi-pencil"></i></button>
+            <?php if ($pengajuan) : ?>
+                <ul class="ps-0 chat-user-list">
+                    <!-- Single Chat User -->
+                    <?php foreach ($pengajuan as $data) : ?>
+                        <li class="p-3">
+                            <a class="d-flex" href="<?= base_url('surat-keluar/edit/' . $data['id_pengajuan']) ?>">
+                                <!-- Thumbnail -->
+                                <div class="chat-user-thumbnail me-3 shadow">
+                                    <img class="img-circle" src="<?= base_url('mobile') ?>/assets/technical-support.png" alt="">
+                                </div>
+                                <!-- Info -->
+                                <div class="chat-user-info">
+                                    <h6 class="text-truncate mb-0">ID #<?= $data['id_simpan'] ?></h6>
+                                    <div class="last-chat">
+                                        <p class="text-truncate mb-0"><?= $data['tgl_pengajuan'] ?></p>
+                                        <p class="text-truncate mb-0"><?= $data['nama_surat'] ?></p>
                                     </div>
-                                </td>
-                            </tr>
-                        <?php
-                        endforeach
-                        ?>
-                    </tbody>
-                </table>
-                <button class="btn btn-primary w-100 mt-2" type="submit">Tambah Data
-            </div>
+                                </div>
+                            </a>
+
+                            <!-- Options -->
+
+
+
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php else : ?>
+                <div class="card-body">
+                    <p class="text-center">Belum ada pengajuan perangkat.</p>
+                </div>
+            <?php endif ?>
         </div>
     </div>
     <div class="pb-3"></div>

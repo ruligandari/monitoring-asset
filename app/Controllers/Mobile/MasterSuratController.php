@@ -7,6 +7,7 @@ use CodeIgniter\HTTP\ResponseInterface;
 
 class MasterSuratController extends BaseController
 {
+    protected $mastersurat;
     function __construct()
     {
         $this->mastersurat = new \App\Models\MasterSuratModel();
