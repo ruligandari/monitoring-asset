@@ -14,7 +14,7 @@ class AdminController extends BaseController
 
     public function admin()
     {
-        $admin = $this->admin->findAll();
+        $admin = $this->admin->where('role', '1')->findAll();
         $data = [
             'title' => 'Data Admin',
             'admin' => $admin
@@ -23,7 +23,7 @@ class AdminController extends BaseController
     }
     public function teknisi()
     {
-        $admin = $this->admin->findAll();
+        $admin = $this->admin->where('role!=', '1')->findAll();
         $data = [
             'title' => 'Data Teknisi',
             'admin' => $admin
