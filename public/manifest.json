@@ -1,7 +1,7 @@
 {
     "name": "Monitoring Asset",
     "short_name": "Monitoring Asset",
-    "start_url": "https://monitoring.kapanitu.my.id/login",
+    "start_url": "https://monitoring-aset.kapanitu.my.id/login",
     "display": "standalone",
     "background_color": "#0d5afd",
     "theme_color": "#0d5afd",
