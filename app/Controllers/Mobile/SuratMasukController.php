@@ -32,7 +32,7 @@ class SuratMasukController extends BaseController
         // fifo
         $pengajuanDataAntri = $this->pengajuan
             ->join('user', 'user.id = tbl_pengajuan.id_user')
-            ->where('status', '!= Disetujui')
+            ->where('pm1', '1')
             ->orderBy('id_pengajuan', 'ASC')
             ->findAll();
 
