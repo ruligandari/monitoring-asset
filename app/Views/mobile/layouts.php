@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="<?= base_url('mobile') ?>/style.css">
 
     <!-- Web App Manifest -->
-    <link rel="manifest" href="<?= base_url('mobile') ?>/manifest.json">
+    <link rel="manifest" href="<?= base_url('') ?>/manifest.json">
 </head>
 
 <body>
