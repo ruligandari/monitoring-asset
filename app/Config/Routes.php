@@ -47,6 +47,11 @@ $routes->get('/surat-keluar/edit/(:any)', 'Mobile\SuratKeluarController::edit/$1
 $routes->get('/admin', 'Mobile\AdminController::admin');
 
 $routes->get('/teknisi', 'Mobile\AdminController::teknisi');
+$routes->get('/teknisi/tambah', 'Mobile\AdminController::tambah');
+$routes->get('/teknisi/edit/(:any)', 'Mobile\AdminController::edit/$1');
+$routes->post('/teknisi/add', 'Mobile\AdminController::add');
+$routes->post('/teknisi/update', 'Mobile\AdminController::update');
+$routes->post('/teknisi/delete', 'Mobile\AdminController::delete');
 
 $routes->get('/profile', 'Mobile\ProfileController::index');
 $routes->post('/profile/update', 'Mobile\ProfileController::update');

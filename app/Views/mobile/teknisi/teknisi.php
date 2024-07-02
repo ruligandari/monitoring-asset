@@ -59,7 +59,7 @@
                         ?>
                     </tbody>
                 </table>
-                <button class="btn btn-primary w-100 mt-2" type="submit">Tambah Data
+                <a class="btn btn-primary w-100 mt-2" href="<?= base_url('teknisi/tambah') ?>">Tambah Data Teknisi</a>
             </div>
         </div>
     </div>

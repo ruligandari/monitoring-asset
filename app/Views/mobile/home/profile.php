@@ -66,8 +66,12 @@
                 <form action="<?= base_url('/profile/update') ?>" method="POST">
                     <input type="text" value="<?= $user['id'] ?>" name="id_user" hidden>
                     <div class="form-group mb-3">
+                        <label class="form-label" for="Username">Nama</label>
+                        <input class="form-control" id="Username" type="text" value="<?= $user['nama'] ?>" placeholder="Username" name="nama">
+                    </div>
+                    <div class="form-group mb-3">
                         <label class="form-label" for="Username">Username</label>
-                        <input class="form-control" id="Username" type="text" value="<?= $user['username'] ?>" placeholder="Username">
+                        <input class="form-control" id="Username" type="text" value="<?= $user['username'] ?>" placeholder="Username" name="username">
                     </div>
 
                     <div class="form-group mb-3">

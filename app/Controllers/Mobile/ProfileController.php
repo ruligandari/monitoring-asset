@@ -51,6 +51,8 @@ class ProfileController extends BaseController
     public function update()
     {
         $id = $this->request->getPost('id_user');
+        $nama = $this->request->getPost('nama');
+        $username = $this->request->getPost('username');
         $password_baru = $this->request->getPost('password_baru');
         $password_baru_1 = $this->request->getPost('password_baru_1');
 
@@ -61,7 +63,7 @@ class ProfileController extends BaseController
         }
 
         // update password sesuai id
-        $this->adminModel->update($id, ['password' => $password_baru]);
+        $this->adminModel->update($id, ['password' => $password_baru, 'nama' => $nama, 'username' => $username]);
 
         return redirect()->to('/profile')->with('success', 'Password berhasil diubah');
     }

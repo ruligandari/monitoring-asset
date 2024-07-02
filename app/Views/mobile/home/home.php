@@ -93,11 +93,11 @@
                         <div class="col-4">
                             <div class="feature-card mx-auto text-center">
                                 <div class="card mx-auto bg-gray">
-                                    <a href="<?= base_url('/admin') ?>">
+                                    <a href="<?= base_url('/profile') ?>">
                                         <img src="<?= base_url('mobile') ?>/assets/admin.png" alt="">
                                     </a>
                                 </div>
-                                <p class="mb-0">Data Admin</p>
+                                <p class="mb-0">Profile Admin</p>
                             </div>
                         </div>
 
@@ -144,7 +144,7 @@
                         <div class="col-4">
                             <div class="feature-card mx-auto text-center">
                                 <div class="card mx-auto bg-gray">
-                                    <a href="<?= base_url('/teknisi') ?>">
+                                    <a href="<?= base_url('/profile') ?>">
                                         <img src="<?= base_url('mobile') ?>/assets/teknisi.png" alt="">
                                     </a>
                                 </div>
@@ -224,7 +224,7 @@
                 </li>
 
                 <li class="active">
-                    <a href="elements.html">
+                    <a href="#">
                         <i class="bi bi-plus-lg"></i>
                     </a>
                 </li>
