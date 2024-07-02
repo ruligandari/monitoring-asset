@@ -218,7 +218,7 @@
         <div class="footer-nav position-relative shadow-sm footer-style-two">
             <ul class="h-100 d-flex align-items-center justify-content-between ps-0">
                 <li>
-                    <a href="<?= base_url('/home') ?>">
+                    <a href="<?= base_url('/') ?>">
                         <i class="bi bi-house"></i>
                     </a>
                 </li>
@@ -230,7 +230,7 @@
                 </li>
 
                 <li>
-                    <a href="settings.html">
+                    <a href="<?= base_url('/profile') ?>">
                         <i class="bi bi-person"></i>
                     </a>
                 </li>
