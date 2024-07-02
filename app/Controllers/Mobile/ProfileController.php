@@ -33,8 +33,8 @@ class ProfileController extends BaseController
             case 3:
                 $keterangan = 'Project Manager 1';
                 break;
-            case 3:
-                $keterangan = 'Project Manager 2';
+            case 4:
+                $keterangan = 'Kordinator';
                 break;
             default:
                 $keterangan = 'User';

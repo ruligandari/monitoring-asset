@@ -185,7 +185,7 @@
                         <div class="col-4">
                             <div class="feature-card mx-auto text-center">
                                 <div class="card mx-auto bg-gray">
-                                    <a href="<?= base_url('/teknisi') ?>">
+                                    <a href="<?= base_url('/profile') ?>">
                                         <img src="<?= base_url('mobile') ?>/assets/teknisi.png" alt="">
                                     </a>
                                 </div>

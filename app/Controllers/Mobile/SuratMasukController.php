@@ -12,6 +12,7 @@ class SuratMasukController extends BaseController
     protected $user;
     protected $barangMasuk;
     protected $barangKeluar;
+    protected $surat;
     public function __construct()
     {
         $this->masterAsset = new \App\Models\MasterAssetModel();
@@ -19,6 +20,7 @@ class SuratMasukController extends BaseController
         $this->user = new \App\Models\AdminModel();
         $this->barangMasuk = new \App\Models\BarangMasukModel();
         $this->barangKeluar = new \App\Models\BarangKeluarModel();
+        $this->surat = new \App\Models\MasterSuratModel();
     }
 
     public function suratmasuk()
@@ -110,9 +112,9 @@ class SuratMasukController extends BaseController
             ->select('deskripsi as nama_perangkat_simpan, sn as serial_numbe_simpanr, merk as merk_perangkatsimpan')
             ->findAll();
 
-
+        $nama_surat = $this->surat->where('nomor_surat', 1)->select('file_surat')->first();
         // gunakan library php word
-        $template = new \PhpOffice\PhpWord\TemplateProcessor('template_surat.docx');
+        $template = new \PhpOffice\PhpWord\TemplateProcessor($nama_surat['file_surat']);
 
         // setvalue tanggal format = rabu, 12 januari 2021
         $template->setValue('tanggal', $tanggalPengajuan);
