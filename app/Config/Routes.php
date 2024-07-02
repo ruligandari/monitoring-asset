@@ -48,6 +48,8 @@ $routes->get('/admin', 'Mobile\AdminController::admin');
 
 $routes->get('/teknisi', 'Mobile\AdminController::teknisi');
 
+$routes->get('/profile', 'Mobile\ProfileController::index');
+$routes->post('/profile/update', 'Mobile\ProfileController::update');
 
 // Teknisi
 $routes->get('/pengajuan-perangkat', 'Mobile\PengajuanPerangkatController::index');

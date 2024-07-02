@@ -29,7 +29,7 @@ class SuratMasukController extends BaseController
             ->orderBy('id_pengajuan', 'DESC')
             ->findAll();
 
-        // fifo
+        // algortima fifo
         $pengajuanDataAntri = $this->pengajuan
             ->join('user', 'user.id = tbl_pengajuan.id_user')
             ->where('pm1', '1')
