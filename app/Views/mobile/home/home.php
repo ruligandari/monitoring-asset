@@ -25,7 +25,7 @@
                                         <img src="<?= base_url('mobile') ?>/assets/technical-support.png" alt="">
                                     </a>
                                 </div>
-                                <p class="mb-0">Master Aset</p>
+                                <p class="mb-0">Master Barang</p>
                             </div>
                         </div>
 
@@ -90,7 +90,7 @@
                         </div>
                     </div>
                     <div class="row g-3 mt-2">
-                        <div class="col-4">
+                        <!-- <div class="col-4">
                             <div class="feature-card mx-auto text-center">
                                 <div class="card mx-auto bg-gray">
                                     <a href="<?= base_url('/profile') ?>">
@@ -99,7 +99,7 @@
                                 </div>
                                 <p class="mb-0">Profile Admin</p>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="col-4">
                             <div class="feature-card mx-auto text-center">
@@ -108,7 +108,7 @@
                                         <img src="<?= base_url('mobile') ?>/assets/teknisi.png" alt="">
                                     </a>
                                 </div>
-                                <p class="mb-0">Data Teknisi</p>
+                                <p class="mb-0">Data Pekerja</p>
                             </div>
                         </div>
                         <div class="col-4">
@@ -138,10 +138,10 @@
                                         <img src="<?= base_url('mobile') ?>/assets/technical-support.png" alt="">
                                     </a>
                                 </div>
-                                <p class="mb-0">Permintaan Perangkat</p>
+                                <p class="mb-0">Permintaan Barang</p>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <!-- <div class="col-4">
                             <div class="feature-card mx-auto text-center">
                                 <div class="card mx-auto bg-gray">
                                     <a href="<?= base_url('/profile') ?>">
@@ -150,7 +150,7 @@
                                 </div>
                                 <p class="mb-0">Profil Teknisi</p>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-4">
                             <div class="feature-card mx-auto text-center">
                                 <div class="card mx-auto bg-gray">
@@ -179,10 +179,10 @@
                                         <img src="<?= base_url('mobile') ?>/assets/technical-support.png" alt="">
                                     </a>
                                 </div>
-                                <p class="mb-0">Permintaan Teknisi</p>
+                                <p class="mb-0">Permintaan Barang</p>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <!-- <div class="col-4">
                             <div class="feature-card mx-auto text-center">
                                 <div class="card mx-auto bg-gray">
                                     <a href="<?= base_url('/profile') ?>">
@@ -191,7 +191,7 @@
                                 </div>
                                 <p class="mb-0">Profil Project Manager</p>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-4">
                             <div class="feature-card mx-auto text-center">
                                 <div class="card mx-auto bg-gray">

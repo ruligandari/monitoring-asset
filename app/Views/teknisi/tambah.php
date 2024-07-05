@@ -21,7 +21,7 @@
         <div class="header-content position-relative d-flex align-items-center justify-content-between">
             <!-- Back Button -->
             <div class="back-button">
-                <a href="<?= base_url('/barang-masuk') ?>">
+                <a href="<?= base_url('/pengajuan-perangkat') ?>">
                     <i class="bi bi-arrow-left-short"></i>
                 </a>
             </div>

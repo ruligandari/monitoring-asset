@@ -81,7 +81,7 @@
                         ?>
                     </tbody>
                 </table>
-                <a class="btn btn-primary w-100 mt-2" href="<?= base_url('teknisi/tambah') ?>">Tambah Data Teknisi</a>
+                <a class="btn btn-primary w-100 mt-2" href="<?= base_url('teknisi/tambah') ?>">Tambah Data Pekerja</a>
             </div>
         </div>
     </div>

@@ -36,7 +36,7 @@ class AdminController extends BaseController
             }
         }
         $data = [
-            'title' => 'Data Teknisi',
+            'title' => 'Data Pekerja',
             'admin' => $admin,
         ];
         return view('mobile/admin/admin', $data);
@@ -45,7 +45,7 @@ class AdminController extends BaseController
     public function tambah()
     {
         $data = [
-            'title' => 'Tambah Data Teknisi'
+            'title' => 'Tambah Data Pekerja'
         ];
         return view('mobile/admin/tambah', $data);
     }

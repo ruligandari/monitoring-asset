@@ -26,7 +26,7 @@ class PengajuanPerangkatController extends BaseController
         $pengajuanData = $this->pengajuan->orderBy('id_pengajuan', 'DESC')->findAll();
 
         $data = [
-            'title' => 'Pengajuan Perangkat',
+            'title' => 'Pengajuan Barang',
             'pengajuan' => $pengajuanData
         ];
 
@@ -37,7 +37,7 @@ class PengajuanPerangkatController extends BaseController
     {
         $barang = $this->masterAsset->findAll();
         $data = [
-            'title' => 'Tambah Pengajuan Perangkat Baru',
+            'title' => 'Tambah Permintaan Barang Baru',
             'barang' => $barang
         ];
 

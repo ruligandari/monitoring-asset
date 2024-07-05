@@ -28,7 +28,7 @@ class ProjectManagerController extends BaseController
             ->findAll();
 
         $data = [
-            'title' => 'Permintaan Teknisi',
+            'title' => 'Permintaan Barang',
             'pengajuan' => $pengajuanData
         ];
 

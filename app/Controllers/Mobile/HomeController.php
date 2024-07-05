@@ -26,7 +26,7 @@ class HomeController extends BaseController
         $masterassets = $this->masterassets->orderBy('id', 'DESC')->findAll();
 
         $data = [
-            'title' => 'Master Aset',
+            'title' => 'Master Barang',
             'masterassets' => $masterassets
         ];
         return view('mobile/master-aset/master-aset', $data);
@@ -35,7 +35,7 @@ class HomeController extends BaseController
     public function master_tambah()
     {
         $data = [
-            'title' => 'Tambah Aset',
+            'title' => 'Tambah Barang',
         ];
         return view('mobile/master-aset/tambah', $data);
     }
