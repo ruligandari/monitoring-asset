@@ -24,6 +24,11 @@ $routes->post('/master-aset/delete', 'Mobile\HomeController::master_delete');
 $routes->get('/master-aset/edit/(:num)', 'Mobile\HomeController::master_edit/$1');
 
 $routes->get('/master-surat', 'Mobile\MasterSuratController::mastersurat');
+$routes->get('/master-surat/tambah', 'Mobile\MasterSuratController::tambah');
+$routes->post('/master-surat/add', 'Mobile\MasterSuratController::add');
+$routes->get('/master-surat/update/(:any)', 'Mobile\MasterSuratController::edit/$1');
+$routes->post('/master-surat/update', 'Mobile\MasterSuratController::update');
+$routes->post('/master-surat/delete', 'Mobile\MasterSuratController::delete');
 // barang masuk
 $routes->get('/barang-masuk', 'Mobile\BarangMasukController::barangmasuk');
 // route CRUD seperti master-aset

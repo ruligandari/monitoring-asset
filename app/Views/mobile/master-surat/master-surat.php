@@ -32,7 +32,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nama</th>
-                            <th>Template Surat</th>
+                            <th>Status</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -44,11 +44,11 @@
                             <tr>
                                 <td><?= $no++ ?></td>
                                 <td><?= $data['nama'] ?></td>
-                                <td><?= $data['file_surat'] ?></td>
+                                <td><?= ($data['nomor_surat'] == 1) ? 'Aktif' : 'Tidak Aktif' ?></td>
                                 <td>
                                     <div class="d-flex justify-content-center align-center">
-                                        <button class="btn btn-link btn-sm"><i class="bi bi-trash"></i></button>
-                                        <button class="btn btn-link btn-sm"><i class="bi bi-pencil"></i></button>
+                                        <button class="btn btn-link btn-sm" onclick="deleteData(<?= $data['id'] ?>)"><i class="bi bi-trash"></i></button>
+                                        <a class="btn btn-link btn-sm" href="<?= base_url('master-surat/update/' . $data['id']) ?>"><i class="bi bi-pencil"></i></a>
                                     </div>
                                 </td>
                             </tr>
@@ -57,10 +57,54 @@
                         ?>
                     </tbody>
                 </table>
-                <button class="btn btn-primary w-100 mt-2" type="submit">Tambah Data
+                <a class="btn btn-primary w-100 mt-2" href="<?= base_url('/master-surat/tambah') ?>">Tambah Data </a>
             </div>
         </div>
     </div>
     <div class="pb-3"></div>
 </div>
+
+<script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+<script>
+    function deleteData(id) {
+        Swal.fire({
+            title: 'Apakah anda yakin?',
+            text: "Data yang dihapus tidak bisa dikembalikan!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Hapus!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: '<?= base_url('master-surat/delete') ?>',
+                    type: 'POST',
+                    data: {
+                        id: id
+                    },
+                    success: function() {
+                        Swal.fire(
+                            'Terhapus!',
+                            'Data berhasil dihapus.',
+                            'success'
+                        ).then((result) => {
+                            location.reload();
+                        })
+                    },
+                    error: function() {
+                        Swal.fire(
+                            'Gagal!',
+                            'Data gagal dihapus.',
+                            'error'
+                        )
+                    }
+                })
+            }
+        })
+
+    }
+</script>
 <?= $this->endsection(); ?>

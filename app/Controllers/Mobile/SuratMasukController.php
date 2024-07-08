@@ -113,8 +113,8 @@ class SuratMasukController extends BaseController
             ->findAll();
 
         $nama_surat = $this->surat->where('nomor_surat', 1)->select('file_surat')->first();
-        // gunakan library php word
-        $template = new \PhpOffice\PhpWord\TemplateProcessor($nama_surat['file_surat']);
+        // gunakan library php word, dengan mengambil template surat dari folder template
+        $template = new \PhpOffice\PhpWord\TemplateProcessor('template/' . $nama_surat['file_surat']);
 
         // setvalue tanggal format = rabu, 12 januari 2021
         $template->setValue('tanggal', $tanggalPengajuan);
