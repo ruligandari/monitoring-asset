@@ -56,7 +56,7 @@ class AdminController extends BaseController
         $username = $this->request->getPost('username');
         $cek = $this->admin->where('username', $username)->findAll();
         if ($cek) {
-            return redirect()->to('/teknisi/tambah')->with('error', 'Username sudah digunakan');
+            return redirect()->to('/teknisi')->with('error', 'Username sudah digunakan');
         }
 
         $data = [
