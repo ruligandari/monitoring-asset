@@ -52,6 +52,13 @@ class AdminController extends BaseController
 
     public function add()
     {
+        // cek username tidak boleh sama
+        $username = $this->request->getPost('username');
+        $cek = $this->admin->where('username', $username)->findAll();
+        if ($cek) {
+            return redirect()->to('/teknisi/tambah')->with('error', 'Username sudah digunakan');
+        }
+
         $data = [
             'nama' => $this->request->getPost('nama'),
             'username' => $this->request->getPost('username'),
