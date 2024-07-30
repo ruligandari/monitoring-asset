@@ -50,107 +50,131 @@
     <div class="container">
         <div class="card">
             <div class="card-body">
-                <table class="table w-100" id="dataTable">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Asset</th>
-                            <th>Status</th>
-                            <th>Merk</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $no = 1;
-                        foreach ($masterassets as $data) :
-                        ?>
+                <div class="card-title">
+                    <!-- select option shoh $deskripsi -->
+                    <div class="d-flex justify-content-between mb-3">
+                        <div class="d-flex col-lg-3 col-6">
+                            <select class="form-select" id="filter">
+                                <option value="">Semua</option>
+                                <?php foreach ($deskripsi as $data) : ?>
+                                    <option value="<?= $data['deskripsi'] ?>" <?= ($selected == $data['deskripsi'] ? 'selected' : '') ?>><?= $data['deskripsi'] ?></option>
+                                <?php endforeach ?>
+                            </select>
+                        </div>
+                    </div>
+                    <table class="table w-100" id="dataTable">
+                        <thead>
                             <tr>
-                                <td><?= $no++ ?></td>
-                                <td><?= $data['deskripsi'] . '-' . $data['sn'] ?></td>
-                                <td><?= $data['status_perangkat'] ?></td>
-                                <td><?= $data['merk'] ?></td>
-                                <td>
-                                    <div class="d-flex justify-content-center align-center">
-                                        <button class="btn btn-link btn-sm" onclick="deleteData(<?= $data['id'] ?>)"><i class="bi bi-trash"></i></button>
-                                        <a class="btn btn-link btn-sm" type="button" href="<?= base_url('master-aset/edit/' . $data['id']) ?>"><i class="bi bi-pencil"></i></a>
-                                    </div>
-                                </td>
+                                <th>No</th>
+                                <th>Asset</th>
+                                <th>Status</th>
+                                <th>Merk</th>
+                                <th>Aksi</th>
                             </tr>
-                        <?php
-                        endforeach
-                        ?>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $no = 1;
+                            foreach ($masterassets as $data) :
+                            ?>
+                                <tr>
+                                    <td><?= $no++ ?></td>
+                                    <td><?= $data['deskripsi'] . '-' . $data['sn'] ?></td>
+                                    <td><?= $data['status_perangkat'] ?></td>
+                                    <td><?= $data['merk'] ?></td>
+                                    <td>
+                                        <div class="d-flex justify-content-center align-center">
+                                            <button class="btn btn-link btn-sm" onclick="deleteData(<?= $data['id'] ?>)"><i class="bi bi-trash"></i></button>
+                                            <a class="btn btn-link btn-sm" type="button" href="<?= base_url('master-aset/edit/' . $data['id']) ?>"><i class="bi bi-pencil"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php
+                            endforeach
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="pb-3"></div>
+        <div class="footer-nav-area" id="footerNav">
+            <div class="container px-0">
+                <!-- Footer Content -->
+                <div class="footer-nav position-relative shadow-sm footer-style-two">
+                    <ul class="h-100 d-flex align-items-center justify-content-between ps-0">
+                        <li>
+
+                        </li>
+
+                        <li class="active">
+                            <a href="<?= base_url('master-aset/tambah') ?>">
+                                <i class="bi bi-plus-lg"></i>
+                            </a>
+                        </li>
+
+                        <li>
+
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
+    <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-    <div class="pb-3"></div>
-    <div class="footer-nav-area" id="footerNav">
-        <div class="container px-0">
-            <!-- Footer Content -->
-            <div class="footer-nav position-relative shadow-sm footer-style-two">
-                <ul class="h-100 d-flex align-items-center justify-content-between ps-0">
-                    <li>
-
-                    </li>
-
-                    <li class="active">
-                        <a href="<?= base_url('master-aset/tambah') ?>">
-                            <i class="bi bi-plus-lg"></i>
-                        </a>
-                    </li>
-
-                    <li>
-
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-<script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-
-<script>
-    function deleteData(id) {
-        Swal.fire({
-            title: 'Apakah anda yakin?',
-            text: "Data yang dihapus tidak bisa dikembalikan!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Ya, Hapus!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $.ajax({
-                    url: '<?= base_url('master-aset/delete') ?>',
-                    type: 'POST',
-                    data: {
-                        id: id
-                    },
-                    success: function() {
-                        Swal.fire(
-                            'Terhapus!',
-                            'Data berhasil dihapus.',
-                            'success'
-                        ).then((result) => {
-                            location.reload();
-                        })
-                    },
-                    error: function() {
-                        Swal.fire(
-                            'Gagal!',
-                            'Data gagal dihapus.',
-                            'error'
-                        )
-                    }
-                })
+    <!-- script -->
+    <script>
+        // ambil id filter kemudian arahkan ke controller master-aset/filter
+        $('#filter').change(function() {
+            var filter = $(this).val();
+            if (filter == '') {
+                window.location.href = '<?= base_url('master-aset/') ?>';
             }
-        })
+            window.location.href = '<?= base_url('master-aset/') ?>' + filter;
+        });
+    </script>
 
-    }
-</script>
-<?= $this->endsection(); ?>
+
+    <script>
+        function deleteData(id) {
+            Swal.fire({
+                title: 'Apakah anda yakin?',
+                text: "Data yang dihapus tidak bisa dikembalikan!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: '<?= base_url('master-aset/delete') ?>',
+                        type: 'POST',
+                        data: {
+                            id: id
+                        },
+                        success: function() {
+                            Swal.fire(
+                                'Terhapus!',
+                                'Data berhasil dihapus.',
+                                'success'
+                            ).then((result) => {
+                                location.reload();
+                            })
+                        },
+                        error: function() {
+                            Swal.fire(
+                                'Gagal!',
+                                'Data gagal dihapus.',
+                                'error'
+                            )
+                        }
+                    })
+                }
+            })
+
+        }
+    </script>
+    <?= $this->endsection(); ?>

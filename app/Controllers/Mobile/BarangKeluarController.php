@@ -20,7 +20,7 @@ class BarangKeluarController extends BaseController
     {
         $barangkeluar = $this->barangkeluar
             ->join('tbl_master_asset', 'tbl_master_asset.id = tbl_barang_keluar.id_asset')
-            ->join('tbl_pengajuan', 'tbl_pengajuan.id_ambil = tbl_barang_keluar.id_ambil')->where('status', 'Disetujui')->findAll();
+            ->join('tbl_pengajuan', 'tbl_pengajuan.id_ambil = tbl_barang_keluar.id_ambil')->where('admin', 1)->findAll();
 
 
         $data = [
@@ -43,5 +43,27 @@ class BarangKeluarController extends BaseController
             'data' => $barangKeluar
         ];
         return view('mobile/barang-keluar/edit', $data);
+    }
+
+    public function cetak()
+    {
+        // set time zone asia jakarta
+        date_default_timezone_set('Asia/Jakarta');
+
+        $template = new \PhpOffice\PhpWord\TemplateProcessor('template/' . 'template_barang_keluar.docx');
+        $barangkeluar = $this->barangkeluar
+            ->join('tbl_master_asset', 'tbl_master_asset.id = tbl_barang_keluar.id_asset')
+            ->join('tbl_pengajuan', 'tbl_pengajuan.id_ambil = tbl_barang_keluar.id_ambil')->where('admin', 1)
+            ->orderBy('id_pengajuan', 'DESC')->findAll();
+
+        $tanggal = date('Y-m-d H:i:s');
+        $template->setValue('tanggal', $tanggal);
+        $template->cloneRowAndSetValues('deskripsi', $barangkeluar);
+        $filename = 'Laporan Barang Keluar ' . date('Y-m-d H:i:s') . '.docx';
+        // simpan ke public
+        $template->saveAs($filename);
+        // download
+        $response = $this->response->download($filename, null);
+        return $response;
     }
 }

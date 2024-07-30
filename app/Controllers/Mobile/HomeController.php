@@ -25,17 +25,29 @@ class HomeController extends BaseController
     {
         $masterassets = $this->masterassets->orderBy('id', 'DESC')->findAll();
 
+        // unique deskripsi pada tabel masterassets
+        $deskripsi = $this->masterassets->distinct()->select('deskripsi')->findAll();
+
+
         $data = [
             'title' => 'Master Barang',
-            'masterassets' => $masterassets
+            'masterassets' => $masterassets,
+            'deskripsi' => $deskripsi,
+            'selected' => '',
         ];
         return view('mobile/master-aset/master-aset', $data);
     }
 
     public function master_tambah()
     {
+        $deskripsi = $this->masterassets->distinct()->select('deskripsi')->findAll();
+        $status = $this->masterassets->distinct()->select('status_perangkat')->findAll();
+        $merk = $this->masterassets->distinct()->select('merk')->findAll();
         $data = [
             'title' => 'Tambah Barang',
+            'deskripsi' => $deskripsi,
+            'status' => $status,
+            'merk' => $merk
         ];
         return view('mobile/master-aset/tambah', $data);
     }
@@ -99,5 +111,21 @@ class HomeController extends BaseController
             return json_encode(['error' => 'Data gagal dihapus']);
         }
         return json_encode(['success' => 'Data berhasil dihapus']);
+    }
+
+    public function master_filter($filter)
+    {
+        $masterassets = $this->masterassets->where('deskripsi', $filter)->findAll();
+
+        // unique deskripsi pada tabel masterassets
+        $deskripsi = $this->masterassets->distinct()->select('deskripsi')->findAll();
+
+        $data = [
+            'title' => 'Master Barang',
+            'masterassets' => $masterassets,
+            'deskripsi' => $deskripsi,
+            'selected' => $filter,
+        ];
+        return view('mobile/master-aset/master-aset', $data);
     }
 }

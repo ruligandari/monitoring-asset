@@ -22,6 +22,7 @@ $routes->post('/master-aset/add', 'Mobile\HomeController::master_add');
 $routes->post('/master-aset/update', 'Mobile\HomeController::master_update');
 $routes->post('/master-aset/delete', 'Mobile\HomeController::master_delete');
 $routes->get('/master-aset/edit/(:num)', 'Mobile\HomeController::master_edit/$1');
+$routes->get('/master-aset/(:any)', 'Mobile\HomeController::master_filter/$1');
 
 $routes->get('/master-surat', 'Mobile\MasterSuratController::mastersurat');
 $routes->get('/master-surat/tambah', 'Mobile\MasterSuratController::tambah');
@@ -45,6 +46,7 @@ $routes->get('/barang-keluar/edit/(:any)', 'Mobile\BarangKeluarController::edit/
 $routes->get('/surat-masuk', 'Mobile\SuratMasukController::suratmasuk');
 $routes->get('/surat-masuk/edit/(:any)', 'Mobile\SuratMasukController::edit/$1');
 $routes->post('/surat-masuk/approve', 'Mobile\SuratMasukController::update');
+$routes->post('/surat-masuk/reject', 'Mobile\SuratMasukController::reject');
 
 $routes->get('/surat-keluar', 'Mobile\SuratKeluarController::suratkeluar');
 $routes->get('/surat-keluar/edit/(:any)', 'Mobile\SuratKeluarController::edit/$1');
@@ -71,6 +73,8 @@ $routes->post('/pengajuan-perangkat/delete', 'Mobile\PengajuanPerangkatControlle
 $routes->get('/asset/perangkat-disimpan', 'Mobile\PengajuanPerangkatController::perangkatDisimpan');
 // download surat
 $routes->get('/download/(:any)', 'Mobile\PengajuanPerangkatController::download/$1');
+$routes->get('/cetak/barang-masuk', 'Mobile\BarangMasukController::cetak');
+$routes->get('/cetak/barang-keluar', 'Mobile\BarangKeluarController::cetak');
 // Project Manager
 $routes->get('/pengajuan-teknisi', 'Mobile\ProjectManagerController::index');
 $routes->get('/pengajuan-teknisi/edit/(:any)', 'Mobile\ProjectManagerController::edit/$1');

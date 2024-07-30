@@ -27,14 +27,14 @@ class SuratMasukController extends BaseController
     {
         $pengajuanData = $this->pengajuan
             ->join('user', 'user.id = tbl_pengajuan.id_user')
-            ->where('status', 'Disetujui')
+            ->where('status !=', 'Menunggu Approval')
             ->orderBy('id_pengajuan', 'DESC')
             ->findAll();
 
         // algortima fifo
         $pengajuanDataAntri = $this->pengajuan
             ->join('user', 'user.id = tbl_pengajuan.id_user')
-            ->where('pm1', '1')
+            ->where('status', 'Menunggu Approval')
             ->orderBy('id_pengajuan', 'ASC')
             ->findAll();
 
@@ -174,5 +174,43 @@ class SuratMasukController extends BaseController
 
 
         return redirect()->to('/surat-masuk')->with('success', 'Permintaan Disetujui');
+    }
+
+    public function reject()
+    {
+        $id_pengajuan = $this->request->getPost('id_pengajuan');
+        $role_pm = $this->request->getPost('role_pm');
+
+        // cari ke tbl_pengajuan dengan id, ambil id_simpan dan id_ambil
+        $pengajuan = $this->pengajuan->find($id_pengajuan);
+        $idSimpan = $pengajuan['id_simpan'];
+        $idAmbil = $pengajuan['id_ambil'];
+        $unit = $pengajuan['unit'];
+
+        // cari id_asset pada tbl_barang_masuk dengan id_simpan
+        $dataBarangmasuk = $this->barangMasuk->where('id_simpan', $idSimpan)->select('id_asset')->findAll();
+        // cocokan id_asset dengan id pada tbl_master_asset, kemudia ubah status menjadi  Tersedia
+        foreach ($dataBarangmasuk as $data) {
+            $this->masterAsset->update($data['id_asset'], ['status_perangkat' => 'Tersedia']);
+        }
+
+
+        // cari id_asset pada tbl_barang_keluar dengan id_ambil
+        $dataBarangkeluar = $this->barangKeluar->where('id_ambil', $idAmbil)->select('id_asset')->findAll();
+        // cocokan id_asset dengan id pada tbl_master_asset, kemudia ubah status menjadi  Unit
+        foreach ($dataBarangkeluar as $data) {
+            $this->masterAsset->update($data['id_asset'], ['status_perangkat' => $unit]);
+        }
+        // update status_barang pada tbl_barang_masuk menjadi Ditolak dengan id_simpan
+        $this->barangMasuk->where('id_simpan', $idSimpan)->set(['status_barang' => 'Ditolak'])->update();
+
+        // update status_barang pada tbl_barang_keluar menjadi Ditolak dengan id_ambil
+        $this->barangKeluar->where('id_ambil', $idAmbil)->set(['status_barang' => 'Ditolak'])->update();
+
+
+        // update status pengajuan menjadi Ditolak
+        $this->pengajuan->update($id_pengajuan, ['admin' => 2, 'status' => 'Ditolak']);
+
+        return redirect()->to('/surat-masuk')->with('success', 'Permintaan Ditolak');
     }
 }

@@ -27,6 +27,11 @@
     <div class="container">
         <div class="card">
             <div class="card-body">
+                <div class="card-header d-flex justify-content-between">
+                    <a class="btn m-1 btn-primary" href="<?= base_url('cetak/barang-keluar') ?>">
+                        <i class="bi bi-printer"></i> Cetak
+                    </a>
+                </div>
                 <table class="table w-100" id="dataTable">
                     <thead>
                         <tr>

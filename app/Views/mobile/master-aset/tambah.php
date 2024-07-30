@@ -32,7 +32,13 @@
                 <form action="<?= base_url('master-aset/add') ?>" method="POST">
                     <div class="form-group">
                         <label class="form-label" for="exampleInputText">Nama Aset</label>
-                        <input class="form-control" id="exampleInputText" type="text" name="nama" placeholder="Nama Aset">
+                        <!-- select option $deskripsi -->
+                        <select class="form-select" id="exampleInputText" name="nama">
+                            <option value="">Pilih Nama Aset</option>
+                            <?php foreach ($deskripsi as $data) : ?>
+                                <option value="<?= $data['deskripsi'] ?>"><?= $data['deskripsi'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
 
                     <div class="form-group">
@@ -42,11 +48,22 @@
 
                     <div class="form-group">
                         <label class="form-label" for="exampleInputemail">Status Perangkat</label>
-                        <input class="form-control" id="exampleInputemail" type="text" name="status_perangkat" placeholder="Masukan Status Perangkat">
+                        <!-- select option $status -->
+                        <select class="form-select" id="exampleInputemail" name="status_perangkat">
+                            <option value="">Pilih Status Perangkat</option>
+                            <option value="Tersedia">Tersedia</option>
+                            <option value="Sevice">Service</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="exampleInputemail">Merk</label>
-                        <input class="form-control" id="exampleInputemail" type="text" name="merk" value="" placeholder="Masukan Merk">
+                        <!-- select option $merk -->
+                        <select class="form-select" id="exampleInputemail" name="merk">
+                            <option value="">Pilih Merk</option>
+                            <?php foreach ($merk as $data) : ?>
+                                <option value="<?= $data['merk'] ?>"><?= $data['merk'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
 
                     <button class="btn btn-primary w-100 d-flex align-items-center justify-content-center" type="submit">
